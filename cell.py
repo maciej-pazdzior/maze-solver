@@ -25,12 +25,21 @@ class Cell:
         point4 = Point( self._x2, self._y2)
         if self.has_left_wall:
             self._win.draw_line(Line(point1, point3))
+        else:
+            self._win.draw_line(Line(point1, point3), "white")
         if self.has_right_wall:
             self._win.draw_line(Line(point2, point4))
+        else:
+            self._win.draw_line(Line(point2, point4), "white")
         if self.has_top_wall:
             self._win.draw_line(Line(point1, point2))
+        else:
+            self._win.draw_line(Line(point1, point2), "white")
         if self.has_bottom_wall:
             self._win.draw_line(Line(point3, point4))
+        else:
+            self._win.draw_line(Line(point3, point4), "white")
+
 
     def draw_move(self, to_cell, undo=False):
         fill_color = "red"
