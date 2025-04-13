@@ -3,7 +3,7 @@ import time
 from cell import Cell
 
 class Maze:
-    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win):
+    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win=None):
         self.x1 = x1
         self.y1 = y1
         self.num_rows = num_rows
@@ -11,6 +11,7 @@ class Maze:
         self.cell_size_x = cell_size_x
         self.cell_size_y = cell_size_y
         self.win = win
+        self._create_cells()
 
     def _create_cells(self):
         self._cells = []
@@ -39,5 +40,14 @@ class Maze:
             return
         self.win.redraw()
         time.sleep(0.05)
+
+    def _break_entrence_and_exit(self):
+        entrance = self._cells[0][0]
+        entrance.has_top_wall = False
+        self.draw_cell(0, 0)
+        entrance = self._cells[-1][-1]
+        entrance.has_bottom_wall = False
+        self.draw_cell(-1, -1)
+
 
 
