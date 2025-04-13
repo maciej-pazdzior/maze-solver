@@ -1,14 +1,11 @@
 from graphics import Window
-from cell import Cell
+from maze import Maze
 
 
 def main():
     win = Window(800, 600)
-    cell1 = Cell(win)
-    cell1.draw(250, 250, 500, 500)
-    cell2 = Cell(win)
-    cell2.draw(250, 500, 500, 750)
-    cell1.draw_move(cell2)
+    maze = Maze(0, 0, 12, 16, 50, 50, win)
+    maze._create_cells()
     win.wait_for_close()
 
 
