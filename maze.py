@@ -19,6 +19,7 @@ class Maze:
         else:
             self.seed = seed
         self._break_walls_r(0, 0)
+        self._reset_cells_visited()
 
     def _create_cells(self):
         self._cells = []
@@ -82,6 +83,11 @@ class Maze:
                 current_cell.has_left_wall = False
             self._draw_cell(i, j)
             self._break_walls_r(chosen_cell[0], chosen_cell[1])
+
+    def _reset_cells_visited(self):
+        for row in self._cells:
+            for cell in row:
+                cell.visited = False
 
 
 
