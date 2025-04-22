@@ -11,6 +11,7 @@ class Cell:
         self._y1 = None
         self._y2 = None
         self._win = win
+        self.visited = False
 
     def draw(self, x1, y1, x2, y2):
         if self._win is None:
@@ -48,4 +49,7 @@ class Cell:
         point1 = Point((self._x1 + self._x2) / 2, (self._y1 + self._y2) / 2)
         point2 = Point((to_cell._x1 + to_cell._x2) / 2, (to_cell._y1 + to_cell._y2) / 2)
         self._win.draw_line(Line(point1, point2), fill_color)
+
+    
+
         
